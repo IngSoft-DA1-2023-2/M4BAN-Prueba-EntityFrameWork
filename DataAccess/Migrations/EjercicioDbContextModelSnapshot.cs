@@ -95,7 +95,7 @@ namespace DataAccess.Migrations
                     b.HasOne("DataAccess.Proyecto", "Proyecto")
                         .WithMany("CargasDeHoras")
                         .HasForeignKey("ProyectoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("DataAccess.Usuario", "Usuario")
@@ -114,7 +114,7 @@ namespace DataAccess.Migrations
                     b.HasOne("DataAccess.Proyecto", "Proyecto")
                         .WithMany("Usuarios")
                         .HasForeignKey("ProyectoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Proyecto");

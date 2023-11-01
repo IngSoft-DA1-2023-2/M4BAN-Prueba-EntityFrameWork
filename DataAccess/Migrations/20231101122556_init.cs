@@ -40,7 +40,7 @@ namespace DataAccess.Migrations
                         column: x => x.ProyectoId,
                         principalTable: "Proyectos",
                         principalColumn: "ProyectoId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -62,7 +62,7 @@ namespace DataAccess.Migrations
                         column: x => x.ProyectoId,
                         principalTable: "Proyectos",
                         principalColumn: "ProyectoId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_CargasDeHoras_Usuarios_UsuarioId",
                         column: x => x.UsuarioId,

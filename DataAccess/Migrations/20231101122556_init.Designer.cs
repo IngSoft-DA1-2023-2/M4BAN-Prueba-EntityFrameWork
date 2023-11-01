@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(EjercicioDbContext))]
-    [Migration("20231101114253_init")]
+    [Migration("20231101122556_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -98,7 +98,7 @@ namespace DataAccess.Migrations
                     b.HasOne("DataAccess.Proyecto", "Proyecto")
                         .WithMany("CargasDeHoras")
                         .HasForeignKey("ProyectoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("DataAccess.Usuario", "Usuario")
@@ -117,7 +117,7 @@ namespace DataAccess.Migrations
                     b.HasOne("DataAccess.Proyecto", "Proyecto")
                         .WithMany("Usuarios")
                         .HasForeignKey("ProyectoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Proyecto");
