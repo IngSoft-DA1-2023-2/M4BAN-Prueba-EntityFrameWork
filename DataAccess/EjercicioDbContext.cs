@@ -16,22 +16,22 @@ namespace DataAccess
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server= .\\SQLEXPRESS;Database=Prueba2;Integrated Security=True;Trusted_Connection=True;Encrypt=False;");
+            optionsBuilder.UseSqlServer("Server= .\\SQLEXPRESS;Database=PruebaFinal;Integrated Security=True;Trusted_Connection=True;Encrypt=False;");
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder
-                .Entity<CargaHoras>()
-                .HasOne(e => e.Proyecto)
-                .WithMany(e => e.CargasDeHoras)
-                .OnDelete(DeleteBehavior.Restrict);
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder
+        //        .Entity<CargaHoras>()
+        //        .HasOne(e => e.Proyecto)
+        //        .WithMany(e => e.CargasDeHoras)
+        //        .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder
-               .Entity<Usuario>()
-               .HasOne(e => e.Proyecto)
-               .WithMany(e => e.Usuarios)
-               .OnDelete(DeleteBehavior.Restrict);
-        }
+        //    modelBuilder
+        //       .Entity<Usuario>()
+        //       .HasOne(e => e.Proyecto)
+        //       .WithMany(e => e.Usuarios)
+        //       .OnDelete(DeleteBehavior.Restrict);
+        //}
     }
 }

@@ -93,13 +93,13 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("DataAccess.CargaHoras", b =>
                 {
                     b.HasOne("DataAccess.Proyecto", "Proyecto")
-                        .WithMany("CargasDeHoras")
+                        .WithMany()
                         .HasForeignKey("ProyectoId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("DataAccess.Usuario", "Usuario")
-                        .WithMany()
+                        .WithMany("CargasDeHoras")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -114,7 +114,7 @@ namespace DataAccess.Migrations
                     b.HasOne("DataAccess.Proyecto", "Proyecto")
                         .WithMany("Usuarios")
                         .HasForeignKey("ProyectoId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Proyecto");
@@ -122,9 +122,12 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Proyecto", b =>
                 {
-                    b.Navigation("CargasDeHoras");
-
                     b.Navigation("Usuarios");
+                });
+
+            modelBuilder.Entity("DataAccess.Usuario", b =>
+                {
+                    b.Navigation("CargasDeHoras");
                 });
 #pragma warning restore 612, 618
         }
